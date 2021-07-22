@@ -64,11 +64,13 @@ class Actors(db.Model):
 
   id = db.Column(db.Integer, primary_key=True)
   name = db.Column(db.String(), nullable=False)
+  surname = db.Column(db.String(), nullable=False)
   age = db.Column(db.Integer, nullable=False)
   gender = db.Column(db.String(), nullable=False)
 
-  def __init__(self, name, age, gender):
+  def __init__(self, name, surname, age, gender):
     self.name = name
+    self.surname = surname
     self.age = age
     self.gender = gender
 
@@ -87,6 +89,7 @@ class Actors(db.Model):
     return {
       'id': self.id,
       'name': self.name,
+      'name': self.surname,
       'age': self.age,
       'gender': self.gender
     }
