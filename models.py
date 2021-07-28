@@ -1,3 +1,4 @@
+from typing import cast
 from sqlalchemy import Column, String, create_engine
 from flask_sqlalchemy import SQLAlchemy
 import os
@@ -30,6 +31,7 @@ class Movies(db.Model):
   title = db.Column(db.String(), nullable=False, unique=True)
   release_date = db.Column(db.String)
   desc = db.Column(db.String())
+  cast = db.relationship('Cast', backref='movies', lazy='joined', cascade='all, delete')
 
   def __init__(self, title, release_date, desc):
     self.title = title
@@ -67,6 +69,7 @@ class Actors(db.Model):
   surname = db.Column(db.String(), nullable=False)
   age = db.Column(db.Integer, nullable=False)
   gender = db.Column(db.String(), nullable=False)
+  cast = db.relationship('Cast', backref='actors', lazy='joined', cascade='all, delete')
 
   def __init__(self, name, surname, age, gender):
     self.name = name
@@ -93,3 +96,15 @@ class Actors(db.Model):
       'age': self.age,
       'gender': self.gender
     }
+
+'''
+Cast
+Movie Cast and role
+'''
+class Cast(db.Model):
+  __tablename__ = 'cast'
+  id = db.Column(db.Integer, primary_key=True)
+  actor_id = db.Column(db.Integer, db.ForeignKey('actors.id'), nullable=False)
+  movie_id = db.Column(db.Integer, db.ForeignKey('movies.id'), nullable=False)
+  role = db.Column(db.String(), nullable=False)
+
