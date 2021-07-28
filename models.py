@@ -29,12 +29,14 @@ class Movies(db.Model):
 
   id = db.Column(db.Integer, primary_key=True)
   title = db.Column(db.String(), nullable=False, unique=True)
+  director = db.Column(db.String(), nullable=False, unique=True)
   release_date = db.Column(db.String)
   desc = db.Column(db.String())
   cast = db.relationship('Cast', backref='movies', lazy='joined', cascade='all, delete')
 
-  def __init__(self, title, release_date, desc):
+  def __init__(self, title, director, release_date, desc):
     self.title = title
+    self.director = director
     self.release_date = release_date
     self.desc = desc
 
@@ -53,6 +55,7 @@ class Movies(db.Model):
     return {
       'id': self.id,
       'title': self.title,
+      'director': self.title,
       'release_date': self.release_date,
       'description': self.desc
     }
