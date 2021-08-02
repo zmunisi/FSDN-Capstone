@@ -161,7 +161,7 @@ def create_app(test_config=None):
         results = paginate_results(request, movies)
         return jsonify({
             'success': True,
-            'actors': results
+            'movies': results
         })
 
     # Add Movie
