@@ -2,6 +2,7 @@ import os
 from flask import Flask, jsonify, request, abort
 from flask_cors import CORS
 from models import setup_db, Actors, Movies
+from auth import requires_auth, AuthError
 
 
 def paginate_results(request, selection):
@@ -21,10 +22,19 @@ def create_app(test_config=None):
 
     app = Flask(__name__)
     setup_db(app)
-    CORS(app)
+    CORS(app, resources={r"/*": {"origins": "*"}})
+
+    @app.after_request
+    def after_request(response):
+        response.headers.add('Access-Control-Allow-Headers',
+                             'Content-Type, Authorization,true')
+        response.headers.add('Access-Control-Allow-Methods',
+                             'GET,PUT,POST,PATCH,DELETE')
+        return response
 
 # ROUTES
     @app.route('/')
+    @requires_auth('get:actors')
     def get_greeting():
         excited = os.environ['EXCITED']
         greeting = "Hello"
@@ -34,7 +44,8 @@ def create_app(test_config=None):
 
     # List Actors
     @app.route('/actors', methods=['GET'])
-    def get_actors():
+    @requires_auth('get:actors')
+    def get_actors(payload):
         actors = Actors.query.order_by(Actors.id).all()
 
         if len(actors) == 0:
@@ -48,7 +59,8 @@ def create_app(test_config=None):
 
     # Add Actors
     @app.route('/actors', methods=['POST'])
-    def add_actor():
+    @requires_auth('post:actors')
+    def add_actor(payload):
         body = request.get_json()
 
         if not ('name' in body and 'surname' in body and 'age'
@@ -84,7 +96,8 @@ def create_app(test_config=None):
 
     # Update Actors
     @app.route('/actors/<int:id>', methods=['PATCH'])
-    def update_actor(id):
+    @requires_auth('patch:actors')
+    def update_actor(payload, id):
         actor = Actors.query.get(id)
 
         if actor is None:
@@ -134,7 +147,8 @@ def create_app(test_config=None):
 
     # Delete Actors
     @app.route('/actors/<int:id>', methods=['DELETE'])
-    def delete_actor(id):
+    @requires_auth('delete:actors')
+    def delete_actor(payload, id):
         actor = Actors.query.get(id)
 
         if actor is None:
@@ -152,7 +166,8 @@ def create_app(test_config=None):
 
     # List Movies
     @app.route('/movies', methods=['GET'])
-    def get_movies():
+    @requires_auth('get:movies')
+    def get_movies(payload):
         movies = Movies.query.order_by(Movies.id).all()
 
         if len(movies) == 0:
@@ -166,7 +181,8 @@ def create_app(test_config=None):
 
     # Add Movie
     @app.route('/movies', methods=['POST'])
-    def add_movie():
+    @requires_auth('post:movies')
+    def add_movie(payload):
         body = request.get_json()
 
         if not ('title' in body and 'director' in body and 'desc'
@@ -202,7 +218,8 @@ def create_app(test_config=None):
 
     # Update Movie
     @app.route('/movies/<int:id>', methods=['PATCH'])
-    def update_movie(id):
+    @requires_auth('patch:movies')
+    def update_movie(payload, id):
         movie = Movies.query.get(id)
 
         if movie is None:
@@ -247,7 +264,8 @@ def create_app(test_config=None):
 
     # Delete Movie
     @app.route('/movies/<int:id>', methods=['DELETE'])
-    def delete_movie(id):
+    @requires_auth('delete:movies')
+    def delete_movie(payload, id):
         movie = Movies.query.get(id)
 
         if movie is None:
@@ -311,6 +329,12 @@ def create_app(test_config=None):
             'error': 403,
             'message': 'Forbidden'
         }), 403
+
+    @app.errorhandler(AuthError)
+    def auth_error_handler(error):
+        response = jsonify(error.error)
+        response.status_code = error.status_code
+        return response
 
     # RETURN APP
     return app

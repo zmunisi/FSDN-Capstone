@@ -10,4 +10,9 @@ export FLASK_ENV=development
 export HEROKU_HOST='https://fsnd-capstone-zmunisi.herokuapp.com/'
 
 # Pagination
-export QUESTIONS_PER_PAGE=10
+export RESULTS_PER_PAGE=10
+
+# Auth0
+export AUTH0_DOMAIN='zmunisi.eu.auth0.com'
+export ALGORITHMS='RS256'
+export API_AUDIENCE='capstone'
