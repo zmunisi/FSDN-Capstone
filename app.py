@@ -34,7 +34,6 @@ def create_app(test_config=None):
 
 # ROUTES
     @app.route('/')
-    @requires_auth('get:actors')
     def get_greeting():
         excited = os.environ['EXCITED']
         greeting = "Hello"
