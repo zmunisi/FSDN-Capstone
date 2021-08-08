@@ -355,13 +355,7 @@ DELETE '/movies/<int:movie_id>'
 curl -X DELETE    -H "Content-Type: application/json" -H 'Authorization: Bearer {YOUR_ACCESS_TOKEN}' http://127.0.0.1:5000/movies/1
 ```
 
-
-
-
-
-
-
-
-
-
-
+## Heroku Link
+```
+https://fsnd-capstone-zmunisi.herokuapp.com/
+```
