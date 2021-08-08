@@ -6,436 +6,1431 @@
 	},
 	"item": [
 		{
-			"name": "Host",
+			"name": "Casting Assistant",
 			"item": [
 				{
-					"name": "Movies",
+					"name": "Heroku",
 					"item": [
 						{
-							"name": "Get Movies",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": ""
+							"name": "Movies",
+							"item": [
+								{
+									"name": "Get Movies",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{heroku}}/movies",
+											"host": [
+												"{{heroku}}"
+											],
+											"path": [
+												"movies"
+											]
+										}
+									},
+									"response": []
 								},
-								"url": {
-									"raw": "{{HOST}}/movies",
-									"host": [
-										"{{HOST}}"
-									],
-									"path": [
-										"movies"
-									]
+								{
+									"name": "Insert Movie",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"desc\": \"An F.B.I. Agent goes undercover to catch a gang of surfers who may be bank robbers.\",\n    \"director\": \"Kathryn Bigelow\",\n    \"release_date\": \"1991\",\n    \"title\": \"Point Break\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{heroku}}/movies",
+											"host": [
+												"{{heroku}}"
+											],
+											"path": [
+												"movies"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update Movie",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"desc\": \"An F.B.I. Agent goes undercover to catch a gang of surfers who may be bank robbers.\",\n    \"director\": \"Kathryn Bigelow\",\n    \"release_date\": \"1991\",\n    \"title\": \"Point Break\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{heroku}}/movies/1",
+											"host": [
+												"{{heroku}}"
+											],
+											"path": [
+												"movies",
+												"1"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Movie",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "text"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{heroku}}/movies/1",
+											"host": [
+												"{{heroku}}"
+											],
+											"path": [
+												"movies",
+												"1"
+											]
+										}
+									},
+									"response": []
 								}
-							},
-							"response": []
+							]
 						},
 						{
-							"name": "Insert Movie",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"desc\": \"An F.B.I. Agent goes undercover to catch a gang of surfers who may be bank robbers.\",\n    \"director\": \"Kathryn Bigelow\",\n    \"release_date\": \"1991\",\n    \"title\": \"Point Break\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
+							"name": "Actors",
+							"item": [
+								{
+									"name": "Get Actors",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{heroku}}/actors",
+											"host": [
+												"{{heroku}}"
+											],
+											"path": [
+												"actors"
+											]
 										}
-									}
+									},
+									"response": []
 								},
-								"url": {
-									"raw": "{{host}}/movies",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"movies"
-									]
+								{
+									"name": "Insert Actor",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Keanu\",\n    \"surname\": \"Reeves\",\n    \"age\": 56,\n    \"gender\": \"Male\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{heroku}}/actors",
+											"host": [
+												"{{heroku}}"
+											],
+											"path": [
+												"actors"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update Actor",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Patrick\",\n    \"surname\": \"Swayze\",\n    \"age\": 57,\n    \"gender\": \"Female\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{heroku}}/actors/2",
+											"host": [
+												"{{heroku}}"
+											],
+											"path": [
+												"actors",
+												"2"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Actor",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "text"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{heroku}}/actors/2",
+											"host": [
+												"{{heroku}}"
+											],
+											"path": [
+												"actors",
+												"2"
+											]
+										}
+									},
+									"response": []
 								}
-							},
-							"response": []
+							]
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.environment.get(\"variable_key\");"
+								]
+							}
 						},
 						{
-							"name": "Update Movie",
-							"request": {
-								"method": "PATCH",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"desc\": \"An F.B.I. Agent goes undercover to catch a gang of surfers who may be bank robbers.\",\n    \"director\": \"Kathryn Bigelow\",\n    \"release_date\": \"1991\",\n    \"title\": \"Point Break\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{host}}/movies/11",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"movies",
-										"11"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Delete Movie",
-							"request": {
-								"method": "DELETE",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "",
-									"options": {
-										"raw": {
-											"language": "text"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{host}}/movies/11",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"movies",
-										"11"
-									]
-								}
-							},
-							"response": []
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
 						}
 					]
 				},
 				{
-					"name": "Actors",
+					"name": "Host",
 					"item": [
 						{
-							"name": "Get Actors",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{host}}/actors",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"actors"
-									]
+							"name": "Movies",
+							"item": [
+								{
+									"name": "Get Movies",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "{{host}}/movies",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"movies"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Insert Movie",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"desc\": \"An F.B.I. Agent goes undercover to catch a gang of surfers who may be bank robbers.\",\n    \"director\": \"Kathryn Bigelow\",\n    \"release_date\": \"1991\",\n    \"title\": \"Point Break\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/movies",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"movies"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update Movie",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"desc\": \"An F.B.I. Agent goes undercover to catch a gang of surfers who may be bank robbers.\",\n    \"director\": \"Kathryn Bigelow\",\n    \"release_date\": \"1991\",\n    \"title\": \"Point Break\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/movies/11",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"movies",
+												"11"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Movie",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "text"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/movies/11",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"movies",
+												"11"
+											]
+										}
+									},
+									"response": []
 								}
-							},
-							"response": []
+							]
 						},
 						{
-							"name": "Insert Actor",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"name\": \"Keanu\",\n    \"surname\": \"Reeves\",\n    \"age\": 56,\n    \"gender\": \"Male\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
+							"name": "Actors",
+							"item": [
+								{
+									"name": "Get Actors",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}/actors",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"actors"
+											]
 										}
-									}
+									},
+									"response": []
 								},
-								"url": {
-									"raw": "{{host}}/actors",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"actors"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Update Actor",
-							"request": {
-								"method": "PATCH",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"name\": \"Patrick\",\n    \"surname\": \"Swayze\",\n    \"age\": 57,\n    \"gender\": \"Male\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
+								{
+									"name": "Insert Actor",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Keanu\",\n    \"surname\": \"Reeves\",\n    \"age\": 56,\n    \"gender\": \"Male\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/actors",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"actors"
+											]
 										}
-									}
+									},
+									"response": []
 								},
-								"url": {
-									"raw": "{{host}}/actors/21",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"actors",
-										"21"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Delete Actor",
-							"request": {
-								"method": "DELETE",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "",
-									"options": {
-										"raw": {
-											"language": "text"
+								{
+									"name": "Update Actor",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Patrick\",\n    \"surname\": \"Swayze\",\n    \"age\": 57,\n    \"gender\": \"Male\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/actors/21",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"actors",
+												"21"
+											]
 										}
-									}
+									},
+									"response": []
 								},
-								"url": {
-									"raw": "{{host}}/actors/22",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"actors",
-										"22"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				}
-			]
-		},
-		{
-			"name": "Heroku",
-			"item": [
-				{
-					"name": "Movies",
-					"item": [
-						{
-							"name": "Get Movies",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{heroku}}/movies",
-									"host": [
-										"{{heroku}}"
-									],
-									"path": [
-										"movies"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Insert Movie",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"desc\": \"An F.B.I. Agent goes undercover to catch a gang of surfers who may be bank robbers.\",\n    \"director\": \"Kathryn Bigelow\",\n    \"release_date\": \"1991\",\n    \"title\": \"Point Break\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
+								{
+									"name": "Delete Actor",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "text"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/actors/22",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"actors",
+												"22"
+											]
 										}
-									}
-								},
-								"url": {
-									"raw": "{{heroku}}/movies",
-									"host": [
-										"{{heroku}}"
-									],
-									"path": [
-										"movies"
-									]
+									},
+									"response": []
 								}
-							},
-							"response": []
-						},
-						{
-							"name": "Update Movie",
-							"request": {
-								"method": "PATCH",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"desc\": \"An F.B.I. Agent goes undercover to catch a gang of surfers who may be bank robbers.\",\n    \"director\": \"Kathryn Bigelow\",\n    \"release_date\": \"1991\",\n    \"title\": \"Point Break\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{heroku}}/movies/11",
-									"host": [
-										"{{heroku}}"
-									],
-									"path": [
-										"movies",
-										"11"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Delete Movie",
-							"request": {
-								"method": "DELETE",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "",
-									"options": {
-										"raw": {
-											"language": "text"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{heroku}}/movies/11",
-									"host": [
-										"{{heroku}}"
-									],
-									"path": [
-										"movies",
-										"11"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "Actors",
-					"item": [
-						{
-							"name": "Get Actors",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{heroku}}/actors",
-									"host": [
-										"{{heroku}}"
-									],
-									"path": [
-										"actors"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Insert Actor",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"name\": \"Keanu\",\n    \"surname\": \"Reeves\",\n    \"age\": 56,\n    \"gender\": \"Male\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{heroku}}/actors",
-									"host": [
-										"{{heroku}}"
-									],
-									"path": [
-										"actors"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Update Actor",
-							"request": {
-								"method": "PATCH",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"name\": \"Patrick\",\n    \"surname\": \"Swayze\",\n    \"age\": 57,\n    \"gender\": \"Male\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{heroku}}/actors/21",
-									"host": [
-										"{{heroku}}"
-									],
-									"path": [
-										"actors",
-										"21"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Delete Actor",
-							"request": {
-								"method": "DELETE",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "",
-									"options": {
-										"raw": {
-											"language": "text"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{heroku}}/actors/22",
-									"host": [
-										"{{heroku}}"
-									],
-									"path": [
-										"actors",
-										"22"
-									]
-								}
-							},
-							"response": []
+							]
 						}
 					]
 				}
 			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImZUX2tzNVV2dmpjWlF4dEZqN2tJciJ9.eyJpc3MiOiJodHRwczovL3ptdW5pc2kuZXUuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDYxMGQ0NDRhMzhhMzBiMDA2YWM4ODliNSIsImF1ZCI6ImNhcHN0b25lIiwiaWF0IjoxNjI4NDI2MjUzLCJleHAiOjE2Mjg1MTI2NTMsImF6cCI6Ijh4dkFOOTl6d3JUUjhsNFBEQW1oeHpQdWZvM0JadUt2Iiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJnZXQ6YWN0b3JzIiwiZ2V0Om1vdmllcyJdfQ.TTVRFtAabfBNm75K0IQ46MwrevFo3sPgmNJ9hAi8aQ6_1DfFkAlaUKmRuvmQ06bphidCkjrA4Sgn92wy4CXdd3cUyFfhp-0SE-nGfhEkKf2Riz2CNSRMNZzawB8RPSyfy49x-m4ZSn0S--RghnDWo838rGTIark0fgLysBNJQMkbIlPfDnIT6rQCP4guPfoQZgq1O9qGn8TMYOt-qG36W2wfFqeDJxMxiJ55mZBG236CIYCYVAcXTSVkmEEIfIkLA2C3I-yT_RLZcKrvqqyqERovShwd54YrFkl8G4Cpkbq2a_oW0CXhXLUvL8QW4HGpqHVMtnPQacYAG19M_V8GRQ",
+						"type": "string"
+					}
+				]
+			},
 			"event": [
 				{
 					"listen": "prerequest",
 					"script": {
 						"type": "text/javascript",
 						"exec": [
-							"pm.environment.get(\"variable_key\");"
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Casting Director",
+			"item": [
+				{
+					"name": "Heroku",
+					"item": [
+						{
+							"name": "Movies",
+							"item": [
+								{
+									"name": "Get Movies",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{heroku}}/movies",
+											"host": [
+												"{{heroku}}"
+											],
+											"path": [
+												"movies"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Insert Movie",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"desc\": \"An F.B.I. Agent goes undercover to catch a gang of surfers who may be bank robbers.\",\n    \"director\": \"Kathryn Bigelow\",\n    \"release_date\": \"1991\",\n    \"title\": \"Point Break\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{heroku}}/movies",
+											"host": [
+												"{{heroku}}"
+											],
+											"path": [
+												"movies"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update Movie",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"desc\": \"An F.B.I. Agent goes undercover to catch a gang of surfers who may be bank robbers.\",\n    \"director\": \"Kathryn Bigelow\",\n    \"release_date\": \"1991\",\n    \"title\": \"Point Break\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{heroku}}/movies/1",
+											"host": [
+												"{{heroku}}"
+											],
+											"path": [
+												"movies",
+												"1"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Movie",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "text"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{heroku}}/movies/1",
+											"host": [
+												"{{heroku}}"
+											],
+											"path": [
+												"movies",
+												"1"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Actors",
+							"item": [
+								{
+									"name": "Get Actors",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{heroku}}/actors",
+											"host": [
+												"{{heroku}}"
+											],
+											"path": [
+												"actors"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Insert Actor",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Keanu\",\n    \"surname\": \"Reeves\",\n    \"age\": 56,\n    \"gender\": \"Male\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{heroku}}/actors",
+											"host": [
+												"{{heroku}}"
+											],
+											"path": [
+												"actors"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update Actor",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Patrick\",\n    \"surname\": \"Swayze\",\n    \"age\": 57,\n    \"gender\": \"Female\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{heroku}}/actors/2",
+											"host": [
+												"{{heroku}}"
+											],
+											"path": [
+												"actors",
+												"2"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Actor",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "text"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{heroku}}/actors/2",
+											"host": [
+												"{{heroku}}"
+											],
+											"path": [
+												"actors",
+												"2"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.environment.get(\"variable_key\");"
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "Host",
+					"item": [
+						{
+							"name": "Movies",
+							"item": [
+								{
+									"name": "Get Movies",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "{{host}}/movies",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"movies"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Insert Movie",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"desc\": \"An F.B.I. Agent goes undercover to catch a gang of surfers who may be bank robbers.\",\n    \"director\": \"Kathryn Bigelow STONE\",\n    \"release_date\": \"1991\",\n    \"title\": \"Point Break MANINO\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/movies",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"movies"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update Movie",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"desc\": \"An F.B.I. Agent goes undercover to catch a gang of surfers who may be bank robbers.\",\n    \"director\": \"Kathryn Bigelow\",\n    \"release_date\": \"1991\",\n    \"title\": \"Point Break\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/movies/11",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"movies",
+												"11"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Movie",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "text"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/movies/27",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"movies",
+												"27"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Actors",
+							"item": [
+								{
+									"name": "Get Actors",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}/actors",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"actors"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Insert Actor",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Keanu\",\n    \"surname\": \"Reeves\",\n    \"age\": 56,\n    \"gender\": \"Male\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/actors",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"actors"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update Actor",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Patrick\",\n    \"surname\": \"Swayze\",\n    \"age\": 57,\n    \"gender\": \"Male\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/actors/48",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"actors",
+												"48"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Actor",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "text"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/actors/48",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"actors",
+												"48"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImZUX2tzNVV2dmpjWlF4dEZqN2tJciJ9.eyJpc3MiOiJodHRwczovL3ptdW5pc2kuZXUuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDYxMGU3NjMzNmFiZjNkMDA3MDE4YzUxZiIsImF1ZCI6ImNhcHN0b25lIiwiaWF0IjoxNjI4NDI2Mzk5LCJleHAiOjE2Mjg1MTI3OTksImF6cCI6Ijh4dkFOOTl6d3JUUjhsNFBEQW1oeHpQdWZvM0JadUt2Iiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3JzIiwiZ2V0OmFjdG9ycyIsImdldDptb3ZpZXMiLCJwYXRjaDphY3RvcnMiLCJwYXRjaDptb3ZpZXMiLCJwb3N0OmFjdG9ycyIsInBvc3Q6bW92aWVzIl19.dimtBBOY5ZJkSkImmCC6IvhhtFtmO-TeTJncqDbJLxRKbYCp5ocr7eDJywPovVpymCryXHQoRuzGXHodCW4nrcWZf_uYztKkn0GtP6stWbqCgGmuPGC2GsL_aL3JPq9OOtuUgyFI3Ys3_iOZUGxqQjlX6-tTjr4wlMCB5Ty5l_2Dx2jHoMFnUeb6wRY6nMedA2L4GtLSdFsJJg870l4aCyJyLrE1YXJY5h2koHUYEEmw9lNRekgnIa5ZEBn6sIMchE-qlgd1mlN24QRE81fYXOeQWLL3EGDwIIvBWG4JU0Ja7uQjeJt4wiwyyk0zAbmb5szaCDp9LQQMRrJO37q29A",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Executive Producer",
+			"item": [
+				{
+					"name": "Heroku",
+					"item": [
+						{
+							"name": "Movies",
+							"item": [
+								{
+									"name": "Get Movies",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{heroku}}/movies",
+											"host": [
+												"{{heroku}}"
+											],
+											"path": [
+												"movies"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Insert Movie",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"desc\": \"An F.B.I. Agent goes undercover to catch a gang of surfers who may be bank robbers.\",\n    \"director\": \"Kathryn Bigelow\",\n    \"release_date\": \"1991\",\n    \"title\": \"Point Break\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{heroku}}/movies",
+											"host": [
+												"{{heroku}}"
+											],
+											"path": [
+												"movies"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update Movie",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"desc\": \"An F.B.I. Agent goes undercover to catch a gang of surfers who may be bank robbers.\",\n    \"director\": \"Kathryn Bigelow\",\n    \"release_date\": \"1991\",\n    \"title\": \"Point Break\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{heroku}}/movies/1",
+											"host": [
+												"{{heroku}}"
+											],
+											"path": [
+												"movies",
+												"1"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Movie",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "text"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{heroku}}/movies/1",
+											"host": [
+												"{{heroku}}"
+											],
+											"path": [
+												"movies",
+												"1"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Actors",
+							"item": [
+								{
+									"name": "Get Actors",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{heroku}}/actors",
+											"host": [
+												"{{heroku}}"
+											],
+											"path": [
+												"actors"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Insert Actor",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Keanu\",\n    \"surname\": \"Reeves\",\n    \"age\": 56,\n    \"gender\": \"Male\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{heroku}}/actors",
+											"host": [
+												"{{heroku}}"
+											],
+											"path": [
+												"actors"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update Actor",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Patrick\",\n    \"surname\": \"Swayze\",\n    \"age\": 57,\n    \"gender\": \"Female\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{heroku}}/actors/2",
+											"host": [
+												"{{heroku}}"
+											],
+											"path": [
+												"actors",
+												"2"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Actor",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "text"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{heroku}}/actors/2",
+											"host": [
+												"{{heroku}}"
+											],
+											"path": [
+												"actors",
+												"2"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.environment.get(\"variable_key\");"
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "Host",
+					"item": [
+						{
+							"name": "Movies",
+							"item": [
+								{
+									"name": "Get Movies",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "{{host}}/movies",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"movies"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Insert Movie",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"desc\": \"An F.B.I. Agent goes undercover to catch a gang of surfers who may be bank robbers.\",\n    \"director\": \"John Woo\",\n    \"release_date\": \"1991\",\n    \"title\": \"Point Break Man\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/movies",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"movies"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update Movie",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"desc\": \"An F.B.I. Agent goes undercover to catch a gang of surfers who may be bank robbers.\",\n    \"director\": \"Kathryn Bigelow\",\n    \"release_date\": \"1991\",\n    \"title\": \"Point Break\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/movies/20",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"movies",
+												"20"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Movie",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "text"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/movies/21",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"movies",
+												"21"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Actors",
+							"item": [
+								{
+									"name": "Get Actors",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}/actors",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"actors"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Insert Actor",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Keanu\",\n    \"surname\": \"Reeves\",\n    \"age\": 56,\n    \"gender\": \"Male\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/actors",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"actors"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update Actor",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Patrick\",\n    \"surname\": \"Swayze\",\n    \"age\": 57,\n    \"gender\": \"Male\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/actors/46",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"actors",
+												"46"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Actor",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "text"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/actors/46",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"actors",
+												"46"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImZUX2tzNVV2dmpjWlF4dEZqN2tJciJ9.eyJpc3MiOiJodHRwczovL3ptdW5pc2kuZXUuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDYxMGU3NmE0MGFiMDlhMDA2ODQxYTJiOCIsImF1ZCI6ImNhcHN0b25lIiwiaWF0IjoxNjI4NDI2NDYwLCJleHAiOjE2Mjg1MTI4NjAsImF6cCI6Ijh4dkFOOTl6d3JUUjhsNFBEQW1oeHpQdWZvM0JadUt2Iiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3JzIiwiZGVsZXRlOm1vdmllcyIsImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphY3RvcnMiLCJwb3N0Om1vdmllcyJdfQ.cmR9zjAGGZ-c9ugyICzjsdsgqaOTMmA1o2M3oV8bvqZS0Nnki4B7ovUfZ24MWjJLrQuDKKh_BQouvJ5qGnbMEmLvcrVgQ-oq0RR6pqdCQK-Pve47PsbmgEhtImTmDeiGy3r58zguAa3l_wOC4PvYrpvb47oDvctuTE2FmHALtMYz4Km3aYH4M2Rny03OBHgy0Go3W6gEStvUFBKqubaC3Jwgr2V05RVCTg8qjHELMKeDvFFKB7Ml67J6DjVadaM2aZsh6PI670ZzixKDQq-DidG73e62T98IQhb4NvbQR9ecxy3FF7Fm_88xetyrKudSnE89yShGL2XEjQgDYYsPoQ",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
 						]
 					}
 				},
@@ -474,11 +1469,11 @@
 	"variable": [
 		{
 			"key": "host",
-			"value": "http://127.0.0.1:5000/"
+			"value": "http://127.0.0.1:5000"
 		},
 		{
 			"key": "heroku",
-			"value": "https://fsnd-capstone-zmunisi.herokuapp.com/"
+			"value": "https://fsnd-capstone-zmunisi.herokuapp.com"
 		}
 	]
 }
