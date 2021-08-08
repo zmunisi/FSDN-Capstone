@@ -30,11 +30,11 @@ We recommend working within a virtual environment whenever using Python for proj
 ```bash
 python -m venv env
 ```
-#### Activate the encironment (macOS)
+#### Activate the environment (macOS)
 ```bash
 source env/bin/activate
 ```
-#### Activate the encironment (windows)
+#### Activate the environment (windows)
 ```bash
 source env/Scripts/activate
 ```
@@ -55,6 +55,7 @@ export RESULTS_PER_PAGE=10
 export AUTH0_DOMAIN=''
 export ALGORITHMS=''
 export API_AUDIENCE=''
+
 # Bearer Tokens
 export CASTING_ASSISTANT='' 
 export CASTING_DIRECTOR=''
@@ -95,7 +96,7 @@ python manage.py db init
 python manage.py db migrate
 python manage.py db upgrade
 ```
-#### Print out all variables to check everything is set up
+#### Print out all environment variables to check everything is set up
 ```bash
 printenv
 ```
@@ -115,7 +116,7 @@ The `--reload` flag will detect file changes and restart the server automaticall
 Navigate to project homepage [http://127.0.0.1:5000/](http://127.0.0.1:5000/) or [http://localhost:5000](http://localhost:5000) 
 
 ## Setup Auth0
-All endpoints are decorated with Auth0](https://manage.auth0.com/) permissions so you need to:
+All endpoints are decorated with [Auth0](https://manage.auth0.com/) permissions so you need to:
 1. Create a new [Auth0](https://manage.auth0.com/) Account
 2. Select a unique tenant domain
 3. Create a new, single page web application
